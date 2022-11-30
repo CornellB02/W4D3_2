@@ -27,16 +27,20 @@ class Board
   end
 
   def move_piece(color, start_pos, end_pos)
-    if @board[start_pos].empty?(start_pos)
+    if @board[start_pos].empty?
       raise "there is no piece to move"
    elsif !@board[end_pos].move_into_check?(end_pos) #acc to chess rules
       raise "cannot move there"
    else
       piece = self[start_pos]
-      @board[start_pos].empty?(start_pos)
+      @board[start_pos].empty?
       @board[end_pos] = piece
     end
-  
+    #raise error if moves off board(calls valid_pos)
+  end
+
+  def valid_pos
+    #if it is on the board
   end
 
  def self.populate

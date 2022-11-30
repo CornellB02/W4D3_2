@@ -1,3 +1,5 @@
+require 'byebug'
+
 module Slideable 
 
 
@@ -15,19 +17,20 @@ module Slideable
   end
 
   def moves
-
+   all_moves = []
     self.move_dirs.each do |step| #move_dir [0,1]
       row, col = @pos  #current piece position
 
-      all_moves = []
-      until row < 0 || row > 7 || col < 0 || col > 7        #grow unblocked direction
-        #want to add step to row and col                    
-        step_row = row + step[0]
-        step_col = col + step[1]
-        new_pos = [step_row, step_col]
+      loop do            
+        row += step[0]
+        col += step[1]
+        new_pos = [row, col]
 
-        break if !@board[new_pos].empty?(new_pos)
-        all_moves << [new_pos]
+        break if row < 0 || row > 7 || col < 0 || col > 7
+        break if !@board[new_pos].empty? #and not color
+         
+        all_moves << new_pos
+        
       end
     end
     all_moves

@@ -8,8 +8,7 @@ class Piece
     @pos = pos  #array
   end
 
-  def empty?(position)
-    return true if @board.[](position) == Nullpiece
+  def empty?
     false
   end
 
