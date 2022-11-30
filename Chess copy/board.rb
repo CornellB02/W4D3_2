@@ -31,8 +31,9 @@ class Board
    elsif !@board[end_pos].move_into_check?(end_pos) #acc to chess rules
       raise "cannot move there"
    else
+      piece = self[start_pos]
       @board[start_pos].empty?
-      @board[end_pos] = piece?
+      @board[end_pos] = piece
     end
   
   end
