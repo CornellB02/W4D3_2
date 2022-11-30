@@ -12,8 +12,6 @@ include Slidable
     symbol = ♕
   end
 
-  def moves
-
-  end
+  def move_dirs
 
 end
