@@ -27,7 +27,14 @@ module Slideable
         new_pos = [row, col]
 
         break if row < 0 || row > 7 || col < 0 || col > 7
-        break if !@board[new_pos].empty? #and not color
+        if !@board[new_pos].empty?  
+          if self.color == @board[new_pos].color
+            break
+          else
+            all_moves << new_pos
+            break
+          end
+        end
          
         all_moves << new_pos
         
