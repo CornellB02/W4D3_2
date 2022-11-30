@@ -24,7 +24,7 @@ class Pawn < Piece
     elsif @pos[0] == 6 && @color == :black
       return [[0,2], [0,1]]
     #eats diagonally, moves one step forward if nothing blocking
-    elsif self.can_eat?
+    elsif self.can_attack
 
      return [[0,1], [-1,1], [1,1]]
     else
@@ -33,7 +33,7 @@ class Pawn < Piece
     
   end
 
-  def can_eat?
+  def can_attack
     #take the position of self
     #compare position to the diagonal to see if it can eat
 
