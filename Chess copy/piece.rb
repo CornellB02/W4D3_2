@@ -18,7 +18,7 @@ class Piece
   end
 
   def valid_moves
-    valid_moves
+    valid_moves #based off of move into check
   end
 
   def pos=(val)
