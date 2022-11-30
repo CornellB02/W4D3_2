@@ -12,7 +12,7 @@ class Board
   attr_accessor :board
 
   def initialize
-    @board = Array.new(8) {Array.new(8) { Nullpiece.instance }}
+    @board = Array.new(8) {Array.new(8) {Nullpiece.instance}}
   end
 
   def [](pos)
@@ -25,15 +25,16 @@ class Board
     @board[row][col] = val
   end
 
-  def move_piece(start_pos, end_pos)
-    if @board[start_pos].is_a?(Nullpiece)
+  def move_piece(color, start_pos, end_pos)
+    if @board[start_pos].empty?
       raise "there is no piece to move"
-   elsif !@board[end_pos].nil?            #acc to chess rules
+   elsif !@board[end_pos].move_into_check?(end_pos) #acc to chess rules
       raise "cannot move there"
    else
-      @board[start_pos].is_a?(Nullpiece)
+      @board[start_pos].empty?
       @board[end_pos] = piece?
     end
+  
   end
 
  def self.populate

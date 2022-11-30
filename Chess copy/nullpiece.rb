@@ -2,8 +2,8 @@ require_relative "piece.rb"
 
 class Nullpiece < Piece
 
-   def initialize
-    super(color, board, pos)
+   def initialize(color, board, pos)
+    super("_", board, pos)
   end
 
 end
