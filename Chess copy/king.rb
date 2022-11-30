@@ -15,6 +15,7 @@ class King < Piece
   protected
   def move_diffs
     #return an array of diffs representing where a King can step to
+    [[0,1], [1,0], [0,-1], [-1,0], [1,1], [-1,-1], [1,-1], [-1,1]].freeze
   end
 
 end

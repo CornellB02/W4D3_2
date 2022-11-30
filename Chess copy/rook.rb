@@ -10,7 +10,7 @@ include Slideable
   end
 
   def symbol
-   ♜.colorize(color)
+   '♜'.colorize(color)
   end
 
   protected
