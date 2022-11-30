@@ -9,7 +9,7 @@ class Piece
   end
 
   def empty?(position)
-    return true if board.[](position) == Nullpiece
+    return true if @board.[](position) == Nullpiece
     false
   end
 

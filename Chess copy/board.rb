@@ -6,6 +6,7 @@ require_relative "knight.rb"
 require_relative "rook.rb"
 require_relative "rook.rb"
 require_relative "nullpiece.rb"
+require 'colorize'
 
 class Board
 
@@ -40,13 +41,21 @@ class Board
 
  def self.populate
   #row 1 and row 6 are pawns
-  @board.each.with_index do |row, idx|
+  self.each.with_index do |row, idx|
     if idx == 1 || idx == 7 || idx == 0 || idx == 6
       row.each.with_index do |spot, idx1|
-        @board[idx][idx1] = Piece.new()
+        self[idx][idx1] = Piece.new()
       end
     end
   end
-  
  end
+
+  def print
+    puts
+    @board.each.with_index do |row, i|
+      puts "#{i} #{row.map {|ele| ele.is_a?(Nullpiece) ? 'Null' : 'Piec'.blue}.join(' ')}"
+    end
+    puts 
+    ''
+  end
 end

@@ -2,8 +2,8 @@ require_relative 'piece.rb'
 
 class Bishop < Piece
 
-  def initialize
-    super(color, board, pos)
+  def initialize(color, board, pos)
+    super
   end
 
   def symbol
