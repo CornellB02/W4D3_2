@@ -1,11 +1,15 @@
-module Slidable 
+module Slideable 
 
+
+  HVD = [[0,1], [1,0], [0,-1], [-1,0]].freeze
+  DD = [[1,1], [-1,-1], [1,-1], [-1,1]].freeze
+  
   def horizontal_dirs
-    @HVD
+    HVD
   end
 
   def diagonal_dirs
-    @DD
+    DD
   end
 
   def moves
@@ -20,21 +24,17 @@ module Slidable
         step_col = col + step[1]
         new_pos = [step_row, step_col]
 
-        break if !@board[new_pos].empty?
+        break if !@board[new_pos].empty?(new_pos)
         all_moves << [new_pos]
       end
     end
     all_moves
   end
   
-  
-  
-  private
-  HVD: [[0,1], [1,0], [0,-1], [-1,0]]
-  DD: [[1,1], [-1,-1], [1,-1], [-1,1]]
-
+ 
+ 
   def move_dirs
-    diagonal_dirs += horizontal_dirs
+    
   end
 
 end

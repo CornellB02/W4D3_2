@@ -26,13 +26,13 @@ class Board
   end
 
   def move_piece(color, start_pos, end_pos)
-    if @board[start_pos].empty?
+    if @board[start_pos].empty?(start_pos)
       raise "there is no piece to move"
    elsif !@board[end_pos].move_into_check?(end_pos) #acc to chess rules
       raise "cannot move there"
    else
       piece = self[start_pos]
-      @board[start_pos].empty?
+      @board[start_pos].empty?(start_pos)
       @board[end_pos] = piece
     end
   
